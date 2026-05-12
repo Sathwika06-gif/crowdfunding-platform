@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Crowdfunding Platform</title>
+
+    <!-- Razorpay Checkout -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+      // 🔥 Global Donate Function
+      window.handleDonate = async function (amount, title, campaignId) {
+        if (!amount || amount <= 0) {
+          alert("Enter valid amount");
+          return;
+        }
+
+        try {
+          // Step 1: Create Order from Backend
+          const res = await fetch("http://127.0.0.1:5000/create-order", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ amount }),
+          });
+
+          const data = await res.json();
+
+          // Step 2: Razorpay Options
+          const options = {
+            key: "rzp_test_SfHZo74uWOERAI", // 🔥 Your Test Key
+            amount: data.amount,
+            currency: "INR",
+            name: "Crowdfunding Platform",
+            description: title,
+            order_id: data.id,
+
+            // ✅ Payment Success
+            handler: async function (response) {
+              alert("Payment Successful 🎉");
+
+              // 🔥 Save donation in backend
+              await fetch("http://127.0.0.1:5000/donate", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+               body: JSON.stringify({
+  id: campaignId,
+  amount: amount,
+}),
+              });
+
+              // Reload to update UI
+              window.location.reload();
+            },
+
+            // ❌ Payment Failed
+            modal: {
+              ondismiss: function () {
+                alert("Payment cancelled ❌");
+              },
+            },
+
+            prefill: {
+              name: "Test User",
+              email: "test@gmail.com",
+              contact: "9876543210",
+            },
+
+            theme: {
+              color: "#28a745",
+            },
+          };
+
+          const rzp = new window.Razorpay(options);
+          rzp.open();
+        } catch (error) {
+          console.error(error);
+          alert("Payment Failed ❌");
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
