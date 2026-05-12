@@ -1,0 +1,194 @@
+/* ===== GLOBAL RESET ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* ===== NAV LINKS ===== */
+a {
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #28a745;
+  transform: scale(1.05);
+}
+
+/* ===== BUTTONS ===== */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ===== CARDS ===== */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== IMAGES ===== */
+img {
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.03);
+}
+
+/* ===== PROFILE IMAGE ===== */
+.avatar {
+  transition: all 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+  border: 2px solid #28a745;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+  color: #222;
+}
+
+/* NAVBAR */
+.navbar {
+  background: white;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #222;
+  font-weight: bold;
+}
+
+.nav-link:hover {
+  color: #2ecc71;
+}
+
+/* HERO */
+.hero {
+  height: 85vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+}
+
+.hero-overlay h1 {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.hero-overlay p {
+  font-size: 22px;
+}
+
+/* CARDS */
+.card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.green-btn {
+  background: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.blue-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.red-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* FORM */
+.form-container {
+  max-width: 450px;
+  margin: 40px auto;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+  gap: 20px;
+}
